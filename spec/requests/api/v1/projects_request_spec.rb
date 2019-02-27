@@ -9,7 +9,11 @@ describe "Projects API" do
     Paragraph.destroy_all
     Project.destroy_all
 
-    @project_1 = create(:project)
+    @project_1 = Project.create(
+      title: "Project title",
+      alignment: "center",
+      number_of_left_aligned_elements: 3
+    )
       @images_1 = create_list(:image, 2, project: @project_1)
       @paragraph_1 = create(:paragraph, project: @project_1)
         @sentence_groups_1 = create_list(:sentence_group, 2, paragraph: @paragraph_1)
@@ -18,7 +22,11 @@ describe "Projects API" do
         @sentence_groups_1_another = create_list(:sentence_group, 2, paragraph: @paragraph_1_another)
         @links_1_another = create_list(:link, 2, paragraph: @paragraph_1_another)
 
-    @project_2 = create(:project)
+    @project_2 = Project.create(
+      title: "Project title",
+      alignment: "split_center",
+      number_of_left_aligned_elements: 4
+    )
       @images_2 = create_list(:image, 2, project: @project_2)
       @paragraph_2 = create(:paragraph, project: @project_2)
         @sentence_groups_2 = create_list(:sentence_group, 2, paragraph: @paragraph_2)
@@ -40,6 +48,12 @@ describe "Projects API" do
 
     expect(project).to have_key("title")
     expect(project["title"].class).to eq(String)
+
+    expect(project).to have_key("alignment")
+    expect(project["alignment"].class).to eq(String)
+
+    expect(project).to have_key("number_of_left_aligned_elements")
+    expect(project["number_of_left_aligned_elements"].class).to eq(Integer)
 
     expect(project).to have_key("images")
     expect(project["images"].count).to eq(2)
