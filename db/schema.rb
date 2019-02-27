@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_16_164941) do
+ActiveRecord::Schema.define(version: 2019_02_27_225905) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,8 @@ ActiveRecord::Schema.define(version: 2019_02_16_164941) do
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "alignment", default: 0
+    t.integer "number_of_left_aligned_elements"
   end
 
   create_table "sentence_groups", force: :cascade do |t|
