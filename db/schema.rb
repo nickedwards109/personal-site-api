@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_02_184815) do
+ActiveRecord::Schema.define(version: 2019_03_02_225259) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,7 +40,6 @@ ActiveRecord::Schema.define(version: 2019_03_02_184815) do
   end
 
   create_table "paragraphs", force: :cascade do |t|
-    t.text "copy"
     t.integer "order_index"
     t.bigint "section_id"
     t.datetime "created_at", null: false
