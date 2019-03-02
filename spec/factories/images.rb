@@ -6,7 +6,7 @@ FactoryBot.define do
     # This factory creates images with an order_index starting at 2, and assumes that there are 2 paragraphs with order_index of 0 and 1.
     sequence(:order_index) { |n| n + 2 }
 
-    # An image belongs to a project
-    project
+    # An image belongs to a section
+    section
   end
 end

@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Paragraph, type: :model do
-  it "has an order_index, has many sentence_groups, has many links, and belongs to a Project" do
-    project = create(:project)
+  it "has an order_index, has many sentence_groups, has many links, and belongs to a section" do
+    section = create(:section)
 
-    paragraph = Paragraph.create(order_index: 0, project: project)
+    paragraph = Paragraph.create(order_index: 0, section: section)
 
     sentence_group_1 = create(:sentence_group, paragraph: paragraph)
     sentence_group_2 = create(:sentence_group, paragraph: paragraph)
