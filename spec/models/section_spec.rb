@@ -2,7 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Section, type: :model do
   it "has a title, has several paragraphs, and has several images" do
+    page = create(:page)
     section = Section.create(
+      page_id: page.id,
       title: "This is the section title",
       alignment: "center",
       number_of_left_aligned_elements: 3
@@ -19,11 +21,26 @@ RSpec.describe Section, type: :model do
     expect(section.images.count).to eq(2)
 
     split_section = Section.create(
+      page_id: page.id,
       title: "This is the section title",
       alignment: "split_center",
       number_of_left_aligned_elements: 3
     )
     expect(split_section).to be_valid
     expect(split_section.alignment).to eq("split_center")
+  end
+
+  it "belongs to a page" do
+    section = Section.create(
+      title: "This is the section title",
+      alignment: "center",
+      number_of_left_aligned_elements: 3
+    )
+
+    page = create(:page)
+    page.sections << section
+    page.save
+
+    expect(section.page).to eq(page)
   end
 end
