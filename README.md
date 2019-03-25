@@ -13,7 +13,7 @@ As of the time of writing, the API is deployed to production at:
 
 ## Schema
 The database schema can be visualized as follows:
-![Database Schema](public/schema.pdf)
+![Database Schema](public/schema.jpg)
 
 Pages are the top level class that represents different pages in the front-end app. A page has a title that is a string.
 
